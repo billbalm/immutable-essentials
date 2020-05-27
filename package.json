@@ -1,6 +1,6 @@
 {
   "name": "immutable-essentials",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Immutable Essentials",
   "main": "./cjs/index.js",
   "exports": {
@@ -11,18 +11,38 @@
     "./": {
       "import": "./esm/",
       "require": "./cjs/"
+    },
+    "./clone": {
+      "import": "./esm/clone.mjs",
+      "require": "./cjs/clone.js"
+    },
+    "./del": {
+      "import": "./esm/del.mjs",
+      "require": "./cjs/del.js"
+    },
+    "./get": {
+      "import": "./esm/get.mjs",
+      "require": "./cjs/get.js"
+    },
+    "./pick": {
+      "import": "./esm/pick.mjs",
+      "require": "./cjs/pick.js"
+    },
+    "./set": {
+      "import": "./esm/set.mjs",
+      "require": "./cjs/set.js"
     }
   },
   "files": [
+    "*.js",
+    "*.mjs",
     "esm/*",
     "cjs/*"
   ],
   "types": "./esm/index.d.ts",
   "scripts": {
     "lint": "eslint --ext .js --ext .mjs .",
-    "transpile": "rm -rf cjs && babel esm --out-dir cjs --ignore \"**/*.test.mjs\" --source-maps",
-    "prepare": "npm run transpile",
-    "test": "jest --coverage --no-cache"
+    "test": "node --experimental-vm-modules --no-warnings node_modules/jest/bin/jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -42,13 +62,6 @@
     "node": ">=10"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "babel-jest": "^26.0.1",
-    "babel-plugin-module-extension": "^0.1.1",
-    "core-js": "^3.6.5",
-    "cross-env": "^7.0.0",
     "eslint": "^7.1.0",
     "eslint-plugin-jest": "^23.13.1",
     "jest": "^26.0.1"

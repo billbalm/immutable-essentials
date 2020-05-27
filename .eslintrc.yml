@@ -24,7 +24,8 @@ overrides:
     - '**/*.test.mjs'
     extends: plugin:jest/recommended
   - files:
-    - "*.js"
+    - '**/*.js'
     env:
-      es6: false
-      node: true
+      commonjs: true
+    parserOptions:
+      sourceType: script

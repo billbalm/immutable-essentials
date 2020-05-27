@@ -1,6 +1,6 @@
-import clone from './clone.mjs';
+const clone = require('./clone');
 
-export function set(object, path, value, merge = false) {
+function set(object, path, value, merge = false) {
   if (typeof path === 'string') {
     path = path ? path.split('.') : [];
   }
@@ -18,4 +18,4 @@ export function set(object, path, value, merge = false) {
   return object;
 }
 
-export default set;
+module.exports = set;

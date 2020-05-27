@@ -7,7 +7,7 @@ describe('get', function() {
       b: { a: { a: 'BAA' } },
     };
     expect(get(object, ['a', 'b'])).toBe(object.a.b);
-    expect(get(object, ['a', 'b', 'a'])).toEqual('ABA');
+    expect(get(object, ['a', 'b', 'a'])).toBe('ABA');
   });
   it('gets value as expected when path is string', function() {
     const object = {
@@ -15,7 +15,7 @@ describe('get', function() {
       b: { a: { a: 'BAA' } },
     };
     expect(get(object, 'a.b')).toBe(object.a.b);
-    expect(get(object, 'a.b.a')).toEqual('ABA');
+    expect(get(object, 'a.b.a')).toBe('ABA');
   });
   it('gets undefined when path does not exist', function() {
     const object = {
@@ -28,15 +28,17 @@ describe('get', function() {
     const object = {
       a: { a: { a: 'AAA' } },
       b: { a: { a: 'BAA' } },
+      c: {},
     };
-    expect(get(object, ['a', 'c'], 'AC')).toEqual('AC');
+    expect(get(object, ['a', 'c'], 'AC')).toBe('AC');
+    expect(get(object, ['c', 'a', 'a'], 'CAA')).toBe('CAA');
   });
-  it('does not get default value when prop at path is set to undefined', function() {
+  it('gets default value when prop at path is set to undefined', function() {
     const object = {
       a: { a: { a: 'AAA', b: undefined } },
       b: { a: { a: 'BAA' } },
     };
-    expect(get(object, ['a', 'a', 'b'], 'AAB')).toBeUndefined();
+    expect(get(object, ['a', 'a', 'b'], 'AAB')).toBe('AAB');
   });
   it('gets object itself when path is empty array', function() {
     const object = {

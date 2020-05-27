@@ -1,4 +1,4 @@
-export function get(object, path, defaultValue) {
+function get(object, path, defaultValue) {
   if (typeof path === 'string') {
     path = path ? path.split('.') : [];
   }
@@ -15,4 +15,4 @@ export function get(object, path, defaultValue) {
   return obj === undefined ? defaultValue : obj;
 }
 
-export default get;
+module.exports = get;
