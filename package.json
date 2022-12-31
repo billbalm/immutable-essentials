@@ -1,6 +1,6 @@
 {
   "name": "immutable-essentials",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Immutable Essentials",
   "main": "./cjs/index.js",
   "exports": {
@@ -62,8 +62,8 @@
     "node": ">=10"
   },
   "devDependencies": {
-    "eslint": "^7.9.0",
-    "eslint-plugin-jest": "^24.0.2",
-    "jest": "^26.4.2"
+    "eslint": "^8.30.0",
+    "eslint-plugin-jest": "^27.1.7",
+    "jest": "^29.3.1"
   }
 }
